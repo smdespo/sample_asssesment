@@ -122,9 +122,9 @@
                 EduAssess
             </div>
 <nav class="hidden md:flex gap-8 items-center h-full">
-<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="home.html">Dashboard</a>
-<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary font-body-md text-body-md h-full flex items-center" href="quiz.html">Exams</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="results.html">History</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="#">Dashboard</a>
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary font-body-md text-body-md h-full flex items-center" href="#">Exams</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="#">History</a>
 </nav>
 <div class="flex items-center gap-4">
 <button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors cursor-pointer">notifications</button>
@@ -140,7 +140,7 @@
 <!-- Main Content Area -->
 <div class="lg:col-span-8 space-y-md">
 <!-- Back Link -->
-<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group transition-all" href="home.html">
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group transition-all" href="#">
 <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
                     Back to Dashboard
                 </a>
@@ -297,7 +297,18 @@
 </footer>
 <script>
     function launchAssessment() {
-      window.location.href = 'questions.html';
+      const el = document.documentElement;
+      const requestFS = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+      if (requestFS) {
+        requestFS.call(el).then(() => {
+          window.location.href = 'questions.html';
+        }).catch(() => {
+          // Fullscreen denied or not supported — proceed anyway
+          window.location.href = 'questions.html';
+        });
+      } else {
+        window.location.href = 'questions.html';
+      }
     }
     // Simple micro-interaction for the start button
     const startBtn = document.querySelector('button.group');
