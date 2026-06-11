@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quiz Setup - Internship Technical Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-container-low": "#f1f3ff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "inverse-on-surface": "#edf0ff",
+                        "outline": "#737685",
+                        "tertiary": "#004e32",
+                        "primary-fixed": "#dae2ff",
+                        "tertiary-container": "#006844",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "on-error": "#ffffff",
+                        "secondary": "#5c5f60",
+                        "surface-variant": "#d7e2ff",
+                        "on-tertiary-fixed": "#002113",
+                        "outline-variant": "#c3c6d6",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#7de7b2",
+                        "background": "#f9f9ff",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#dee0e2",
+                        "surface-dim": "#cadaff",
+                        "surface-container-high": "#e0e8ff",
+                        "inverse-surface": "#1d3052",
+                        "on-surface": "#041b3c",
+                        "on-background": "#041b3c",
+                        "surface-tint": "#0c56d0",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-container": "#e8edff",
+                        "surface": "#f9f9ff",
+                        "on-primary-fixed": "#001848",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#71dba6",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#8df7c1",
+                        "on-secondary-container": "#606365",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#c5c6c8",
+                        "surface-container-highest": "#d7e2ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#0052cc",
+                        "primary": "#003d9b",
+                        "on-surface-variant": "#434654",
+                        "secondary-fixed": "#e1e2e4",
+                        "on-secondary-fixed": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "container-max": "1200px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface shadow-sm sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">
+                EduAssess
+            </div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="home.html">Dashboard</a>
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary font-body-md text-body-md h-full flex items-center" href="quiz.html">Exams</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary transition-colors cursor-pointer active:scale-95 duration-200" href="results.html">History</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors cursor-pointer">notifications</button>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors cursor-pointer">help</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5QyVAEQReWV0XrKEfGlvEafnecnkn-opV5wkpAiX5ajCO3IQOEpBgpVsI4X43DWM95eRYR7ZJIzdsFNU7dnCntB00iiLjhEVTmLyM2YKdXFBUIdO5UaNlKTkgsJni7924Pdnyt2a5yKfytZoLWZNUotXDF7sizYw-e46Emt3djznbsqkQV-Uvqcl1m3wzRCxOW2eKGvewa4jubc1ebO6H2_YthINrjC3_0RS77mXkWZPoL2Jcp0n5Rt6AEeIdFHNpcYQwNgD7ZRI"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Content Area -->
+<div class="lg:col-span-8 space-y-md">
+<!-- Back Link -->
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md group transition-all" href="home.html">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+                    Back to Dashboard
+                </a>
+<!-- Hero Banner -->
+<div class="relative overflow-hidden rounded-xl h-64 md:h-80 shadow-sm">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A professional overhead shot of a modern workspace featuring a high-end laptop displaying colorful digital marketing analytics and graphs. The environment is bright and minimalist with soft morning sunlight, a clean white desk, and a small green plant for a fresh academic feel. The overall aesthetic is minimalist-corporate, clean, and focused, utilizing a soft blue and grey color palette to instill calm confidence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzVonYGCDQtR6VoHvzgYN-16Jk828O0-5ll4MYXs_wx521-_dbweTZtk325adRy0WYjQaUsLYLlLe9iX0n_A0XOGlJs1CfrhQ7BMvQLIcZf8VxziFpgatFthy5RU28Bn2zHyMfOID7CVBSrbNYc4RgeRFjTt_MP4dP1d8tU_0J2-2yfQrWjOmkvd4P0pXkEaVaYUBVX4otNGY_gjbvFMb5oz4o_7k247YVZ-Ig2D7RngneJJ5NsswxHaB3SOsw5PFqTypqSNlQOlA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-lg">
+<div class="text-white">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-sm font-label-sm mb-sm inline-block">Internship Round</span>
+<h1 class="font-headline-lg text-headline-lg mb-xs">Technical Internship Assessment</h1>
+<p class="font-body-md text-body-md opacity-90 max-w-xl">Evaluate your skills in Web Technologies, Python, SQL, and REST APIs — mandatory for internship candidacy.</p>
+</div>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">quiz</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider">Questions</p>
+<p class="text-on-surface font-headline-md text-headline-md">10</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider">Duration</p>
+<p class="text-on-surface font-headline-md text-headline-md">30 Min</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">grade</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider">Passing Score</p>
+<p class="text-on-surface font-headline-md text-headline-md">8/10</p>
+</div>
+</div>
+</div>
+<!-- Topics Bento Grid -->
+<div class="bg-white p-lg rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]">
+<h2 class="font-headline-md text-headline-md mb-md text-on-surface">Topics Covered</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-sm bg-background border border-outline-variant rounded-lg flex items-center gap-3 transition-all hover:border-primary hover:bg-surface-container-low cursor-default group">
+<div class="bg-white p-2 rounded-md shadow-sm group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">html</span>
+</div>
+<span class="font-label-md text-label-md">HTML & Web Standards</span>
+</div>
+<div class="p-sm bg-background border border-outline-variant rounded-lg flex items-center gap-3 transition-all hover:border-primary hover:bg-surface-container-low cursor-default group">
+<div class="bg-white p-2 rounded-md shadow-sm group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<span class="font-label-md text-label-md">CSS & Styling</span>
+</div>
+<div class="p-sm bg-background border border-outline-variant rounded-lg flex items-center gap-3 transition-all hover:border-primary hover:bg-surface-container-low cursor-default group">
+<div class="bg-white p-2 rounded-md shadow-sm group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<span class="font-label-md text-label-md">Python Fundamentals</span>
+</div>
+<div class="p-sm bg-background border border-outline-variant rounded-lg flex items-center gap-3 transition-all hover:border-primary hover:bg-surface-container-low cursor-default group">
+<div class="bg-white p-2 rounded-md shadow-sm group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">storage</span>
+</div>
+<span class="font-label-md text-label-md">SQL & Databases</span>
+</div>
+<div class="p-sm bg-background border border-outline-variant rounded-lg flex items-center gap-3 transition-all hover:border-primary hover:bg-surface-container-low cursor-default group">
+<div class="bg-white p-2 rounded-md shadow-sm group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">api</span>
+</div>
+<span class="font-label-md text-label-md">REST APIs & HTTP Methods</span>
+</div>
+<div class="p-sm bg-background border border-outline-variant rounded-lg flex items-center gap-3 transition-all hover:border-primary hover:bg-surface-container-low cursor-default group">
+<div class="bg-white p-2 rounded-md shadow-sm group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">code</span>
+</div>
+<span class="font-label-md text-label-md">Web Frameworks (FastAPI)</span>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="flex flex-col sm:flex-row gap-md items-center pt-md">
+<button onclick="launchAssessment()" class="w-full sm:w-auto bg-primary text-white font-headline-md text-headline-md px-xl py-4 rounded-lg shadow-lg hover:bg-primary-container active:scale-95 transition-all flex items-center justify-center gap-3 group">
+                        Start Assessment
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">play_arrow</span>
+</button>
+<p class="text-on-surface-variant font-body-md text-body-md italic">Assessment will open in fullscreen. Ensure a stable connection.</p>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-md">
+<div class="bg-surface-container-low p-lg rounded-xl space-y-md sticky top-24">
+<div class="flex items-center gap-2 text-primary border-b border-outline-variant pb-md">
+<span class="material-symbols-outlined">info</span>
+<h3 class="font-headline-md text-headline-md">Instructions</h3>
+</div>
+<ul class="space-y-md">
+<li class="flex gap-3">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">1</div>
+<p class="font-body-md text-body-md text-on-surface-variant">You have exactly <strong class="text-on-surface">30 minutes</strong> to complete all 10 questions.</p>
+</li>
+<li class="flex gap-3">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">2</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Each question carries <strong class="text-on-surface">1 mark</strong>. No negative marking.</p>
+</li>
+<li class="flex gap-3">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">3</div>
+<p class="font-body-md text-body-md text-on-surface-variant">The assessment will <strong class="text-on-surface">auto-submit</strong> on timer expiry or 3 security violations.</p>
+</li>
+<li class="flex gap-3">
+<div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">4</div>
+<p class="font-body-md text-body-md text-on-surface-variant"><strong class="text-on-surface">Do not</strong> switch tabs, minimize, or open developer tools during the test.</p>
+</li>
+</ul>
+<div class="mt-lg p-md bg-white/50 rounded-lg border border-outline-variant">
+<h4 class="font-label-md text-label-md mb-xs">Accessibility Note</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Keyboard navigation is enabled (Tab/Space). Screen readers will announce question numbers and timers.</p>
+</div>
+<div class="pt-md border-t border-outline-variant flex flex-col gap-sm">
+<button class="w-full flex items-center justify-between p-sm hover:bg-white rounded-md transition-colors group">
+<span class="font-label-md text-label-md text-on-surface">Help Center</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">open_in_new</span>
+</button>
+<button class="w-full flex items-center justify-between p-sm hover:bg-white rounded-md transition-colors group">
+<span class="font-label-md text-label-md text-on-surface">Assessment Policy</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">policy</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-high w-full py-8 mt-auto">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-inverse-on-surface font-bold">
+                EduAssess
+            </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-inverse-on-surface transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-inverse-on-surface transition-all" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-inverse-on-surface transition-all" href="#">Support Contact</a>
+</div>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md text-center md:text-right">
+                © 2024 EduAssess Platform. All rights reserved.
+            </p>
+</div>
+</footer>
+<script>
+    function launchAssessment() {
+      window.location.href = 'questions.html';
+    }
+    // Simple micro-interaction for the start button
+    const startBtn = document.querySelector('button.group');
+    if (startBtn) {
+      startBtn.addEventListener('mouseenter', () => startBtn.classList.add('shadow-xl'));
+      startBtn.addEventListener('mouseleave', () => startBtn.classList.remove('shadow-xl'));
+    }
+    </script>
+</body></html>

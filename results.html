@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assessment Results | EduAssess</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-fixed-variant": "#0040a2",
+          "surface-container-low": "#f1f3ff",
+          "on-error-container": "#93000a",
+          "on-tertiary-fixed-variant": "#005235",
+          "inverse-on-surface": "#edf0ff",
+          "outline": "#737685",
+          "tertiary": "#004e32",
+          "primary-fixed": "#dae2ff",
+          "tertiary-container": "#006844",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-container": "#c4d2ff",
+          "on-error": "#ffffff",
+          "secondary": "#5c5f60",
+          "surface-variant": "#d7e2ff",
+          "on-tertiary-fixed": "#002113",
+          "outline-variant": "#c3c6d6",
+          "primary-fixed-dim": "#b2c5ff",
+          "on-tertiary-container": "#7de7b2",
+          "background": "#f9f9ff",
+          "on-secondary": "#ffffff",
+          "secondary-container": "#dee0e2",
+          "surface-dim": "#cadaff",
+          "surface-container-high": "#e0e8ff",
+          "inverse-surface": "#1d3052",
+          "on-surface": "#041b3c",
+          "on-background": "#041b3c",
+          "surface-tint": "#0c56d0",
+          "inverse-primary": "#b2c5ff",
+          "surface-container": "#e8edff",
+          "surface": "#f9f9ff",
+          "on-primary-fixed": "#001848",
+          "error-container": "#ffdad6",
+          "tertiary-fixed-dim": "#71dba6",
+          "error": "#ba1a1a",
+          "tertiary-fixed": "#8df7c1",
+          "on-secondary-container": "#606365",
+          "surface-bright": "#f9f9ff",
+          "on-secondary-fixed-variant": "#444749",
+          "on-primary": "#ffffff",
+          "secondary-fixed-dim": "#c5c6c8",
+          "surface-container-highest": "#d7e2ff",
+          "on-tertiary": "#ffffff",
+          "primary-container": "#0052cc",
+          "primary": "#003d9b",
+          "on-surface-variant": "#434654",
+          "secondary-fixed": "#e1e2e4",
+          "on-secondary-fixed": "#191c1e"
+        },
+        "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        "spacing": { "lg": "48px", "container-max": "1200px", "xs": "4px", "gutter": "24px", "md": "24px", "xl": "80px", "sm": "12px", "base": "8px" },
+        "fontFamily": { "headline-lg": ["Inter"], "headline-md": ["Inter"], "label-sm": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "label-md": ["Inter"], "body-md": ["Inter"] },
+        "fontSize": {
+          "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+          "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+          "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+          "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .score-ring { transition: stroke-dashoffset 1.2s ease-out; }
+  .glass-card { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); }
+  .status-eligible { background: #e8f5e9; color: #1b5e20; border: 1px solid #4caf50; }
+  .status-borderline { background: #fff8e1; color: #795548; border: 1px solid #ff9800; }
+  .status-not_eligible { background: #ffdad6; color: #93000a; border: 1px solid #ba1a1a; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+  .fade-up { animation: fadeUp 0.5s ease forwards; }
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+
+<!-- TopAppBar -->
+<header class="bg-surface shadow-sm sticky top-0 z-50">
+  <div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+    <div class="text-headline-md font-headline-md font-bold text-primary">EduAssess</div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer font-label-md text-label-md" href="home.html">Dashboard</a>
+      <a class="text-primary font-bold border-b-2 border-primary font-label-md text-label-md" href="results.html">Results</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer font-label-md text-label-md" href="results.html">History</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">notifications</button>
+      <button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">help</button>
+      <div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container-high">
+        <img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnvQbeoizsCyF_JKMWeTETxo7F9CvQ7maNXsAow71zpYNAd1klWIuX7JFuWtUsDRGgT9o3dSFDPmRXnmw6bFO3iXG095vM0B0iM0XgSHDUqjSO8_pZJ_A-rjjBR1Yl4coXAQ50UmIYPQFuWkKB2AOzb3yrE68XL93cGSfZlxd-kjEp-SpP1GSZKsdi1pA3_Y9sdu1VEiyOO5mem-fAtMzXA-9CvPqGRBN-Wqw40FaD69lILubfFx3o_ZKikH-B_1yLh4jLjGtn0oo"/>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="flex-1 py-10">
+  <div class="max-w-container-max mx-auto px-gutter">
+
+    <!-- Auto-submit banner (shown if auto-submitted) -->
+    <div id="auto-submit-banner" style="display:none"
+      class="mb-6 bg-error-container border border-error rounded-xl p-4 flex items-center gap-3 fade-up">
+      <span class="material-symbols-outlined text-error text-[24px]">warning</span>
+      <p class="text-on-error-container font-label-md text-label-md" id="auto-submit-reason-text"></p>
+    </div>
+
+    <!-- Hero Result Section -->
+    <div class="bg-surface border border-outline-variant rounded-2xl p-8 mb-8 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] fade-up">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+
+        <!-- Score Ring -->
+        <div class="md:col-span-4 flex flex-col items-center justify-center">
+          <div class="relative w-48 h-48">
+            <svg viewBox="0 0 200 200" class="w-full h-full -rotate-90">
+              <circle cx="100" cy="100" r="88" fill="none" stroke="#e8edff" stroke-width="12"/>
+              <circle id="score-ring" class="score-ring" cx="100" cy="100" r="88"
+                fill="none" stroke="#003d9b" stroke-width="12"
+                stroke-linecap="round"
+                stroke-dasharray="552.9"
+                stroke-dashoffset="552.9"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span id="score-display" class="text-display-lg font-bold text-on-surface">0/10</span>
+              <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider mt-1">Score</span>
+            </div>
+          </div>
+          <div id="status-badge" class="mt-4 px-5 py-2 rounded-full font-bold text-label-md"></div>
+        </div>
+
+        <!-- Stats -->
+        <div class="md:col-span-8">
+          <div class="mb-2">
+            <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Internship Assessment — Technical Round</span>
+          </div>
+          <h1 id="result-headline" class="font-display-lg text-display-lg text-on-surface mb-2" style="font-size:36px">—</h1>
+          <p id="result-subtext" class="font-body-md text-body-md text-on-surface-variant mb-6"></p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-surface-container-low p-4 rounded-lg text-center border border-outline-variant">
+              <div id="stat-correct" class="font-bold text-headline-md text-primary">—</div>
+              <div class="text-label-sm font-label-sm text-on-surface-variant mt-1">Correct</div>
+            </div>
+            <div class="bg-surface-container-low p-4 rounded-lg text-center border border-outline-variant">
+              <div id="stat-incorrect" class="font-bold text-headline-md text-error">—</div>
+              <div class="text-label-sm font-label-sm text-on-surface-variant mt-1">Incorrect</div>
+            </div>
+            <div class="bg-surface-container-low p-4 rounded-lg text-center border border-outline-variant">
+              <div id="stat-warnings" class="font-bold text-headline-md text-on-surface">—</div>
+              <div class="text-label-sm font-label-sm text-on-surface-variant mt-1">Warnings</div>
+            </div>
+            <div class="bg-surface-container-low p-4 rounded-lg text-center border border-outline-variant">
+              <div id="stat-time" class="font-bold text-headline-md text-on-surface">—</div>
+              <div class="text-label-sm font-label-sm text-on-surface-variant mt-1">Time Taken</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eligibility Detail Card -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+      <!-- Eligibility Breakdown -->
+      <div class="bg-white rounded-xl border border-outline-variant p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] fade-up">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[22px]">bar_chart</span>
+          Eligibility Criteria
+        </h3>
+        <div class="space-y-4">
+          <div id="criteria-not-eligible" class="flex items-center justify-between p-3 rounded-lg border border-outline-variant">
+            <div>
+              <p class="font-label-md text-label-md text-on-surface">Not Eligible</p>
+              <p class="text-label-sm font-label-sm text-on-surface-variant">0 – 5 correct answers</p>
+            </div>
+            <span id="criteria-not-eligible-icon" class="material-symbols-outlined text-[22px] text-on-surface-variant">radio_button_unchecked</span>
+          </div>
+          <div id="criteria-borderline" class="flex items-center justify-between p-3 rounded-lg border border-outline-variant">
+            <div>
+              <p class="font-label-md text-label-md text-on-surface">Borderline</p>
+              <p class="text-label-sm font-label-sm text-on-surface-variant">6 – 7 correct answers</p>
+            </div>
+            <span id="criteria-borderline-icon" class="material-symbols-outlined text-[22px] text-on-surface-variant">radio_button_unchecked</span>
+          </div>
+          <div id="criteria-eligible" class="flex items-center justify-between p-3 rounded-lg border border-outline-variant">
+            <div>
+              <p class="font-label-md text-label-md text-on-surface">Eligible ✓</p>
+              <p class="text-label-sm font-label-sm text-on-surface-variant">8 – 10 correct answers</p>
+            </div>
+            <span id="criteria-eligible-icon" class="material-symbols-outlined text-[22px] text-on-surface-variant">radio_button_unchecked</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security Report -->
+      <div class="bg-white rounded-xl border border-outline-variant p-6 shadow-[0px_4px_12px_rgba(0,0,0,0.05)] fade-up">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[22px]">security</span>
+          Security Report
+        </h3>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low">
+            <span class="font-label-md text-label-md text-on-surface-variant">Anti-cheat monitoring</span>
+            <span class="flex items-center gap-1 text-tertiary font-label-md text-label-md">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span> Active
+            </span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low">
+            <span class="font-label-md text-label-md text-on-surface-variant">Tab switching violations</span>
+            <span id="security-warnings" class="font-bold text-label-md text-on-surface">—</span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low">
+            <span class="font-label-md text-label-md text-on-surface-variant">Copy/paste blocked</span>
+            <span class="flex items-center gap-1 text-tertiary font-label-md text-label-md">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span> Enforced
+            </span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low">
+            <span class="font-label-md text-label-md text-on-surface-variant">Submission method</span>
+            <span id="submit-method" class="font-label-md text-label-md text-on-surface">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Row -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 fade-up">
+      <a href="quiz.html"
+        class="flex items-center justify-center gap-2 bg-primary text-on-primary py-4 px-8 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all shadow-md">
+        <span class="material-symbols-outlined">replay</span>
+        Retake Assessment
+      </a>
+      <a href="home.html"
+        class="flex items-center justify-center gap-2 bg-surface border border-outline-variant text-on-surface py-4 px-8 rounded-lg font-label-md text-label-md hover:bg-surface-container-low active:scale-95 transition-all">
+        <span class="material-symbols-outlined">home</span>
+        Back to Dashboard
+      </a>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="fade-up">
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-6">Personalized Next Steps</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-outline-variant hover:border-primary transition-colors group cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined">code</span>
+          </div>
+          <h4 class="font-headline-md text-lg text-on-surface mb-2">Web Dev Fundamentals</h4>
+          <p class="text-body-md text-on-surface-variant mb-4">Strengthen your HTML, CSS & JavaScript foundation with structured exercises.</p>
+          <span class="text-primary font-bold text-label-sm inline-flex items-center gap-1">Start Course <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-outline-variant hover:border-primary transition-colors group cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined">terminal</span>
+          </div>
+          <h4 class="font-headline-md text-lg text-on-surface mb-2">Python Bootcamp</h4>
+          <p class="text-body-md text-on-surface-variant mb-4">From syntax basics to FastAPI — master Python for backend development.</p>
+          <span class="text-primary font-bold text-label-sm inline-flex items-center gap-1">Start Course <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-outline-variant hover:border-primary transition-colors group cursor-pointer">
+          <div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined">storage</span>
+          </div>
+          <h4 class="font-headline-md text-lg text-on-surface mb-2">SQL & Databases</h4>
+          <p class="text-body-md text-on-surface-variant mb-4">Learn relational database design, queries, and joins from scratch.</p>
+          <span class="text-primary font-bold text-label-sm inline-flex items-center gap-1">Start Course <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-8 mt-8">
+  <div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="font-headline-md text-headline-md text-on-surface">EduAssess</div>
+    <p class="font-body-md text-body-md text-on-surface-variant">© 2024 EduAssess Platform. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Privacy Policy</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Terms of Service</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Support Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Load result data
+  let data = null;
+  try {
+    data = JSON.parse(sessionStorage.getItem('assessment_result') || 'null');
+  } catch(e) {}
+
+  // Fallback demo data if opened directly
+  if (!data) {
+    data = { correct: 8, total: 10, warnings: 1, status: 'eligible', statusText: 'Eligible', autoSubmitReason: 'manual', timeTaken: 720 };
+  }
+
+  const { correct, total, warnings, status, statusText, autoSubmitReason, timeTaken } = data;
+  const incorrect = total - correct;
+  const pct = correct / total;
+
+  // Score ring (circumference = 2*pi*88 = 552.9)
+  const circumference = 552.9;
+  setTimeout(() => {
+    document.querySelector('.score-ring').style.strokeDashoffset = circumference * (1 - pct);
+  }, 100);
+
+  // Score display
+  document.getElementById('score-display').textContent = `${correct}/${total}`;
+
+  // Status badge
+  const badge = document.getElementById('status-badge');
+  badge.textContent = statusText;
+  badge.className = `mt-4 px-5 py-2 rounded-full font-bold text-label-md status-${status}`;
+
+  // Headlines
+  const headlines = {
+    eligible: ['🎉 Congratulations! You are Eligible', 'Excellent performance! You have cleared the internship assessment threshold.'],
+    borderline: ['📋 Borderline Result', 'You were close! A little more preparation and you\'ll clear it next time.'],
+    not_eligible: ['❌ Not Eligible This Time', 'Don\'t be discouraged — review the topics and try again after practice.']
+  };
+  document.getElementById('result-headline').textContent = headlines[status][0];
+  document.getElementById('result-subtext').textContent = headlines[status][1];
+
+  // Stats
+  document.getElementById('stat-correct').textContent = correct;
+  document.getElementById('stat-incorrect').textContent = incorrect;
+  document.getElementById('stat-warnings').textContent = warnings;
+
+  const mins = Math.floor(timeTaken / 60);
+  const secs = timeTaken % 60;
+  document.getElementById('stat-time').textContent = `${mins}m ${secs}s`;
+
+  // Security report
+  document.getElementById('security-warnings').textContent = warnings + ' violation' + (warnings !== 1 ? 's' : '');
+  const methodMap = { manual: 'Manual Submit', timer: 'Timer Expired', warnings: 'Auto (Violations)' };
+  document.getElementById('submit-method').textContent = methodMap[autoSubmitReason] || 'Manual Submit';
+
+  // Auto-submit banner
+  if (autoSubmitReason !== 'manual') {
+    const banner = document.getElementById('auto-submit-banner');
+    banner.style.display = 'flex';
+    const reasonText = { timer: 'Assessment was automatically submitted because the timer expired.', warnings: 'Assessment was automatically submitted due to 3 security violations.' };
+    document.getElementById('auto-submit-reason-text').textContent = reasonText[autoSubmitReason] || '';
+  }
+
+  // Criteria highlighting
+  const criteriaMap = { not_eligible: 'not-eligible', borderline: 'borderline', eligible: 'eligible' };
+  const activeKey = criteriaMap[status];
+  const activeEl = document.getElementById(`criteria-${activeKey}`);
+  const activeIcon = document.getElementById(`criteria-${activeKey}-icon`);
+  if (activeEl) {
+    activeEl.classList.add('border-primary', 'bg-surface-container-low');
+    activeIcon.textContent = 'check_circle';
+    activeIcon.classList.remove('text-on-surface-variant');
+    activeIcon.classList.add('text-primary');
+  }
+
+  // Micro-interactions
+  document.querySelectorAll('button, a').forEach(btn => {
+    btn.addEventListener('mouseenter', () => btn.style.boxShadow = '0px 8px 24px rgba(0,0,0,0.10)');
+    btn.addEventListener('mouseleave', () => btn.style.boxShadow = '');
+  });
+});
+</script>
+</body>
+</html>

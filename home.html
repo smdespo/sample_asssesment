@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduAssess - Master Your Skills with Precision</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#0040a2",
+                    "surface-container-low": "#f1f3ff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "inverse-on-surface": "#edf0ff",
+                    "outline": "#737685",
+                    "tertiary": "#004e32",
+                    "primary-fixed": "#dae2ff",
+                    "tertiary-container": "#006844",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#c4d2ff",
+                    "on-error": "#ffffff",
+                    "secondary": "#5c5f60",
+                    "surface-variant": "#d7e2ff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d6",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-tertiary-container": "#7de7b2",
+                    "background": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#dee0e2",
+                    "surface-dim": "#cadaff",
+                    "surface-container-high": "#e0e8ff",
+                    "inverse-surface": "#1d3052",
+                    "on-surface": "#041b3c",
+                    "on-background": "#041b3c",
+                    "surface-tint": "#0c56d0",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-container": "#e8edff",
+                    "surface": "#f9f9ff",
+                    "on-primary-fixed": "#001848",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#71dba6",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#8df7c1",
+                    "on-secondary-container": "#606365",
+                    "surface-bright": "#f9f9ff",
+                    "on-secondary-fixed-variant": "#444749",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "surface-container-highest": "#d7e2ff",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#0052cc",
+                    "primary": "#003d9b",
+                    "on-surface-variant": "#434654",
+                    "secondary-fixed": "#e1e2e4",
+                    "on-secondary-fixed": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "48px",
+                    "container-max": "1200px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "md": "24px",
+                    "xl": "80px",
+                    "sm": "12px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f5f7; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); }
+        .assessment-shadow { box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); }
+        .assessment-shadow-hover:hover { box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface shadow-sm h-16">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="text-headline-md font-headline-md font-bold text-primary">EduAssess</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary font-label-md text-label-md cursor-pointer active:scale-95 duration-200" href="home.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:scale-95 duration-200" href="quiz.html">Exams</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md cursor-pointer active:scale-95 duration-200" href="results.html">History</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-all">help</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM9rXSFcIYGzzjGCF4A-SxfVGo0G4zFHis2TUBjC1SF12XBs1xRODtR0a3d-gFbIGeIlwE7UnxoeMl-Ysm4kwKgCuBh6sUSsVb8MR1YcYK4SdneaHZC4qQxI_ORyQa5WzrhtLCDo86jokweHFpQy1zBvjy1-G0zoXMpdHX1qCpaV1gPxBxS6mMu5aCRP_YsDyKk6ledZ62iZv8466ndZWgX1mE2SMygHnXdYblyrSFArBck64pScNtREvtivErhKgN6XLlEx4X4M0"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-surface py-20 md:py-32">
+<div class="absolute inset-0 z-0 opacity-10">
+
+</div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10 flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2 text-center md:text-left">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">Master Your Skills with Precision</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto md:mx-0">
+                        The professional assessment platform designed for rigorous testing. Create, solve, and analyze personalized quizzes with data-driven insights.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+<button onclick="window.location.href='quiz.html'" class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all shadow-md">
+                            Get Started
+                        </button>
+<button onclick="window.location.href='results.html'" class="border border-primary text-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container active:scale-95 transition-all">
+                            View Demo
+                        </button>
+</div>
+</div>
+<div class="md:w-1/2 w-full">
+<div class="relative glass-card border border-outline-variant rounded-xl assessment-shadow p-6 rotate-2 hover:rotate-0 transition-transform duration-500">
+<img class="rounded-lg w-full h-auto object-cover aspect-video shadow-sm" data-alt="A high-quality close-up photograph of a modern, sleek tablet displaying a clean user interface for an educational assessment. The device sits on a minimalist white desk with a focus on structured whitespace and calm blue tones. Soft, natural sunlight filters across the scene, creating a professional and focused atmosphere. The composition is elegant and corporate, emphasizing academic rigor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBStWJKF9XzU2UKPzT_ml8g0zAUKbKIAYhCOLafORlmjwe5VUtYCS8ragSRrdp57wJcbM4wAxWVGGIGTZK2-7f2rZOCiuPbFiWt5kzwnMHdir4ioG-wMC_a0uGaVy3a3ojBcTZ_PxyssYyonk3HDEFdoSW3BiPdu0KfCLBiuGidaDHVb2GVZM1FTUgmg3SvrpCDABOdt8hGLifGlR2h4bO0aBmEgdT_NNc33BQHkaEcYtHbUQbLlf4uRCIBKh5OSMAdfTVy8rZn9i8"/>
+<div class="absolute -bottom-6 -left-6 bg-tertiary-container text-on-tertiary-container p-4 rounded-lg assessment-shadow hidden lg:block">
+<span class="font-label-md text-label-md block">Current Score</span>
+<span class="font-headline-md text-headline-md">94.8%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="bg-background py-20">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">How it Works</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Three simple steps to professional mastery</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Select Card -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant assessment-shadow assessment-shadow-hover group">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">library_books</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Select</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Browse our extensive library of expert-curated assessments or create your own custom question sets tailored to your specific goals.
+                        </p>
+</div>
+<!-- Solve Card -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant assessment-shadow assessment-shadow-hover group">
+<div class="w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Solve</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Engage with our distraction-free testing environment. Adaptive difficulty ensures you stay challenged and focused throughout the session.
+                        </p>
+</div>
+<!-- Succeed Card -->
+<div class="bg-surface p-8 rounded-xl border border-outline-variant assessment-shadow assessment-shadow-hover group">
+<div class="w-12 h-12 bg-on-primary-fixed-variant text-on-primary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Succeed</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Receive instant, detailed analytics on your performance. Identify strengths and address knowledge gaps with precision feedback loops.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Bento Grid (Added for Professional Quality) -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-surface rounded-2xl p-8 border border-outline-variant relative overflow-hidden flex flex-col justify-end group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700" data-alt="A professional collaborative environment where diverse corporate professionals are looking at a large screen displaying complex data analytics and assessment metrics. The lighting is bright and modern, with a palette of crisp whites and corporate blues. The scene conveys teamwork, technological advancement, and academic excellence in a minimalist workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5pfsSxI5SQRbDV6nH2Ezovp2WrMlf7yCLVyQ5DsCsMMpBkasVDcXgodPSUnt-sJZ6bK8Cf-s6mZN_t9YRIx2tVnBU7MaCnKSagb291uIRrdTRpWOphAjLuarHRK9cCKA54XdF8KT9061FZ4LzZnXSy1IGTwD5-x99_dVlI7-7gGLGMYr5LYL-AFRDdoxa8orY0kBAi9C0IfT5SF1SoaPuKTXoHIjJ1gd4yCAhB0quoL3w_KmYUvUzznHrxycQ2dNU2ChZ4EXNDaU"/>
+<div class="relative z-10">
+<div class="text-primary bg-primary-container/20 inline-block px-3 py-1 rounded-full text-label-sm font-label-sm mb-4">Enterprise Ready</div>
+<h4 class="font-headline-lg text-headline-lg mb-4">Comprehensive Analytics Dashboard</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Track team progress with heatmaps, individual performance metrics, and historical trend analysis across all assessment domains.</p>
+</div>
+</div>
+<div class="md:col-span-2 bg-white rounded-2xl p-8 border border-outline-variant flex items-center justify-between group">
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Adaptive AI Engine</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Questions evolve based on user performance.</p>
+</div>
+<span class="material-symbols-outlined text-display-lg text-primary/20 group-hover:text-primary transition-colors">psychology</span>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-display-lg mb-2">lock</span>
+<h4 class="font-label-md text-label-md uppercase tracking-wider">Secure Protocol</h4>
+<p class="text-label-sm mt-2 opacity-80">Encryption-standard testing environment.</p>
+</div>
+<div class="bg-inverse-surface text-inverse-on-surface rounded-2xl p-8 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-fixed">verified</span>
+<span class="font-label-md text-label-md">Certification</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Verify &amp; Share Results</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-20 bg-background overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Trusted by Professionals</h2>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1 bg-surface p-8 rounded-xl border border-outline-variant assessment-shadow flex flex-col justify-between">
+<p class="font-body-md text-body-md text-on-surface italic mb-8">
+                            "EduAssess has completely transformed how we conduct internal certifications. The clean UI and detailed feedback have significantly improved our team's learning outcomes."
+                        </p>
+<div class="flex items-center gap-4">
+<img alt="Avatar" class="w-12 h-12 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcBm_e7e6F_Mqt93G0dWVGRAcg3248g1eo4WSnUaKL4d1sPuIz2pPpnnPdnFeQYXaHTzRyphecyHCy4fYz2WyQDGtxfQDodLlHqHRAyi5jpIsnxkPq41mDc55E6FjimUlLNipd3Ty8L2a8FGu4cyAwL-79H7vnWvbQWPW4MXJAYZO3qjNEuamvhUOzspIKCVjAovaEIlm0-ujU5SWBQg1IEMetxmdhQHLNVDM5eIjULSpN7Hfzkcppwn3fDKInuztPspyWyIRQ7NU"/>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface">Sarah Jenkins</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Senior HR Lead, TechGlobal</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-surface p-8 rounded-xl border border-outline-variant assessment-shadow flex flex-col justify-between">
+<p class="font-body-md text-body-md text-on-surface italic mb-8">
+                            "As an independent educator, the ease of question creation and the automated grading system saves me hours of work every week. Simply the best platform available."
+                        </p>
+<div class="flex items-center gap-4">
+<img alt="Avatar" class="w-12 h-12 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnBaPsQ86krL4dVOOtp-qYiXqdW3dX-C8XFn-OR8vdgTaxnotnRkEWY4kJOGIaNRpdnjdVHK7siP3TOUUg3v-8HX39x90ojvF_nxDkoOsMz9X44ulqD4j0S61_3bHWpDcygCa-2nwZ5qJAPoDsztDhcGQ53GK2VnnPYQkkgdHtUX5Rk3hJldGSBUAxaxoiOIIk7XgOPXDK_5FcppRi_gaPmEHlORC0H7Cfl--QTIcow7GxrzWT9Bhi7WHml7g34RGet2Q9qTOn290"/>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface">Dr. Robert Chen</h5>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mathematics Professor</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer CTA -->
+<section class="py-20 bg-primary-container text-on-primary-container">
+<div class="max-w-container-max mx-auto px-gutter text-center">
+<h2 class="font-display-lg text-display-lg mb-6">Ready to elevate your expertise?</h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90 max-w-2xl mx-auto">Join thousands of students and professionals who are already mastering their skills on EduAssess.</p>
+<button class="bg-surface text-primary px-10 py-5 rounded-full font-headline-md text-headline-md hover:scale-105 transition-transform assessment-shadow">
+                    Get Started Free
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-8">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-headline-md text-headline-md text-on-surface">EduAssess</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 EduAssess Platform. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Support Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple intersection observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-10', 'opacity-0');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'translate-y-10', 'opacity-0');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
